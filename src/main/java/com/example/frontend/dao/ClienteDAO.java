@@ -67,6 +67,51 @@ public class ClienteDAO {
         }
     }
 
+    public void guardar(Cliente cliente) throws SQLException {
+        String sql = "INSERT INTO clientes (nombre, apellido, cedula, email, telefono, direccion, usuario_id) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection con = ConexionBD.obtenerConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, cliente.getNombre());
+            ps.setString(2, cliente.getApellido());
+            ps.setString(3, cliente.getCedula());
+            ps.setString(4, cliente.getEmail());
+            ps.setString(5, cliente.getTelefono());
+            ps.setString(6, cliente.getDireccion());
+            ps.setLong(7, cliente.getUsuarioId());
+            ps.executeUpdate();
+        }
+    }
+
+    public void actualizar(Cliente cliente) throws SQLException {
+
+        String sql = "UPDATE clientes SET nombre = ?, apellido = ?, cedula = ?, email = ?, " +
+                "telefono = ?, direccion = ? WHERE id = ?";
+
+        try (Connection con = ConexionBD.obtenerConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, cliente.getNombre());
+            ps.setString(2, cliente.getApellido());
+            ps.setString(3, cliente.getCedula());
+            ps.setString(4, cliente.getEmail());
+            ps.setString(5, cliente.getTelefono());
+            ps.setString(6, cliente.getDireccion());
+            ps.setLong(7, cliente.getId());
+            ps.executeUpdate();
+        }
+    }
+
+    public void eliminar(Long id) throws SQLException {
+        String sql = "DELETE FROM clientes WHERE id = ?";
+
+        try (Connection con = ConexionBD.obtenerConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setLong(1, id);
+            ps.executeUpdate();
+        }
+    }
+
     private Cliente mapear(ResultSet rs) throws SQLException {
         Cliente cliente = new Cliente(
                 rs.getLong("id"),
