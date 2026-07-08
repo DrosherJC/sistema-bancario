@@ -5,6 +5,7 @@ import com.example.frontend.model.EstadoCuenta;
 import com.example.frontend.model.TipoCuenta;
 import com.example.frontend.util.ConexionBD;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,6 +33,67 @@ public class CuentaDAO {
             }
         }
         return resultado;
+    }
+
+    public List<Cuenta> listarPorCliente(Long clienteId) throws SQLException {
+        String sql = SELECT_BASE + "WHERE c.cliente_id = ? ORDER BY c.numero_cuenta";
+        List<Cuenta> resultado = new ArrayList<>();
+
+        try (Connection con = ConexionBD.obtenerConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setLong(1, clienteId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    resultado.add(mapear(rs));
+                }
+            }
+        }
+        return resultado;
+    }
+
+    public Cuenta buscarPorId(Long id) throws SQLException {
+        String sql = SELECT_BASE + "WHERE c.id = ?";
+
+        try (Connection con = ConexionBD.obtenerConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setLong(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next() ? mapear(rs) : null;
+            }
+        }
+    }
+
+    public Cuenta buscarPorNumero(String numeroCuenta) throws SQLException {
+        String sql = SELECT_BASE + "WHERE c.numero_cuenta = ?";
+
+        try (Connection con = ConexionBD.obtenerConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, numeroCuenta);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next() ? mapear(rs) : null;
+            }
+        }
+    }
+
+    public Cuenta buscarPorIdParaActualizar(Long id, Connection con) throws SQLException {
+        String sql = "SELECT id, numero_cuenta, cliente_id, tipo, saldo, estado " +
+                "FROM cuentas WHERE id = ?";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setLong(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (!rs.next()) {
+                    return null;
+                }
+                Cuenta cuenta = new Cuenta();
+                cuenta.setId(rs.getLong("id"));
+                cuenta.setNumeroCuenta(rs.getString("numero_cuenta"));
+                cuenta.setClienteId(rs.getLong("cliente_id"));
+                cuenta.setTipo(TipoCuenta.valueOf(rs.getString("tipo")));
+                cuenta.setSaldo(rs.getBigDecimal("saldo"));
+                cuenta.setEstado(EstadoCuenta.valueOf(rs.getString("estado")));
+                return cuenta;
+            }
+        }
     }
 
     private Cuenta mapear(ResultSet rs) throws SQLException {
