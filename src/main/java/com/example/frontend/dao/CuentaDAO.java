@@ -134,6 +134,15 @@ public class CuentaDAO {
         }
     }
 
+    public void eliminar(Long id) throws SQLException {
+        String sql = "DELETE FROM cuentas WHERE id = ?";
+
+        try (Connection con = ConexionBD.obtenerConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setLong(1, id);
+            ps.executeUpdate();
+        }
+    }
     private Cuenta mapear(ResultSet rs) throws SQLException {
         Cuenta cuenta = new Cuenta();
         cuenta.setId(rs.getLong("id"));
