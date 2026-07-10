@@ -95,7 +95,20 @@ public class CuentaDAO {
             }
         }
     }
+    public void guardar(Cuenta cuenta) throws SQLException {
+        String sql = "INSERT INTO cuentas (numero_cuenta, cliente_id, tipo, saldo, estado) " +
+                "VALUES (?, ?, ?, ?, ?)";
 
+        try (Connection con = ConexionBD.obtenerConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, cuenta.getNumeroCuenta());
+            ps.setLong(2, cuenta.getClienteId());
+            ps.setString(3, cuenta.getTipo().name());
+            ps.setBigDecimal(4, cuenta.getSaldo());
+            ps.setString(5, cuenta.getEstado().name());
+            ps.executeUpdate();
+        }
+    }
     private Cuenta mapear(ResultSet rs) throws SQLException {
         Cuenta cuenta = new Cuenta();
         cuenta.setId(rs.getLong("id"));
