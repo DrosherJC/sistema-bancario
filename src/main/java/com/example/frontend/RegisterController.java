@@ -70,8 +70,7 @@ public class RegisterController {
         txfDireccion.clear();
     }
 
-    @F
-    XML
+    @FXML
     private void onVolverALogin() {
         Navegador.cambiarEscena(txfUsuario, "LoginView.fxml", "Sistema Bancario - Login");
     }
