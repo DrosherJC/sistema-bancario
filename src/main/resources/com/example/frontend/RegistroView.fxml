@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="541.0" style="-fx-background-color: dffeff;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label text="REGISTRO" textFill="RED" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="2.5" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Usuario">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txfUsuario" alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
+            <Label text="Contraseña">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="txfPassword" alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
+            <Label layoutX="10.0" layoutY="53.0" text="Confirmar contraseña">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="txfPasswordConfirm" alignment="CENTER" layoutX="10.0" layoutY="71.0" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
+            <Label text="Nombre">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txfNombre" alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
+            <Label layoutX="10.0" layoutY="140.0" text="Apellido">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txfApellido" alignment="CENTER" layoutX="10.0" layoutY="157.0" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
+            <Label layoutX="10.0" layoutY="183.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txfEmail" alignment="CENTER" layoutX="10.0" layoutY="200.0" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
+            <Label layoutX="10.0" layoutY="226.0" text="Teléfono">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txfTelefono" alignment="CENTER" layoutX="10.0" layoutY="244.0" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
+            <Label layoutX="10.0" layoutY="269.0" text="Dirección">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txfDireccion" alignment="CENTER" layoutX="10.0" layoutY="287.0" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
+            <Button fx:id="btnRegistro" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Registrarme">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Label fx:id="lblMensaje" underline="true" />
+         </children>
+      </VBox>
+   </center>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
+</BorderPane>
