@@ -7,11 +7,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: dffeff;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom right, #0d0d0d, #222222, #c9a227);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="com.example.frontend.DashboardController">
    <top>
-      <Label fx:id="lblUser" alignment="CENTER" contentDisplay="TOP" text="Bienvenido [usuario]! Rol: [rol]" textAlignment="CENTER" textFill="RED" BorderPane.alignment="CENTER">
+      <Label fx:id="lblUser" alignment="CENTER" contentDisplay="TOP" text="Bienvenido [usuario]! Rol: [rol]" textAlignment="CENTER" textFill="#c9a227" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="Bauhaus 93" size="25.0" />
          </font>
          <padding>
             <Insets left="20.0" right="20.0" top="40.0" />
@@ -21,25 +22,25 @@
    <center>
       <VBox alignment="CENTER" cache="true" prefHeight="370.0" prefWidth="340.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnClientes" alignment="CENTER" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Clientes" textAlignment="CENTER">
+            <Button fx:id="btnClientes" alignment="CENTER" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Clientes" textAlignment="CENTER" onAction="#onClientes">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Button>
-            <Button fx:id="btnCuentas" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Cuentas">
+            <Button fx:id="btnCuentas" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Cuentas" onAction="#onCuentas">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Button>
-            <Button fx:id="btnTransacciones" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Transacciones">
+            <Button fx:id="btnTransacciones" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Transacciones" onAction="#onTransacciones">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Button>
-            <Button fx:id="btnUsuarios" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Usuarios">
+            <Button fx:id="btnUsuarios" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Usuarios" onAction="#onUsuarios">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Button>
-            <Button fx:id="btnLogout" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Cerrar Sesión">
+            <Button fx:id="btnLogout" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Cerrar Sesión" onAction="#onLogout">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Button>
          </children>
       </VBox>

@@ -14,53 +14,54 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="850.0" style="-fx-background-color: dffeff;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="850.0" style="-fx-background-color: linear-gradient(to bottom right, #0d0d0d, #222222, #c9a227);;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="com.example.frontend.ClientesController">
    <left>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="300.0" spacing="2.5" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Nombre">
+            <Label text="Nombre" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Label>
-            <TextField fx:id="txfNombre" style="-fx-background-radius: 45;" />
-            <Label text="Apellido">
+            <TextField fx:id="txfNombre" alignment="CENTER" promptText="Ingresa tu nombre" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label text="Apellido" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Label>
-            <TextField fx:id="txfApellido" style="-fx-background-radius: 45;" />
-            <Label text="Cédula">
+            <TextField fx:id="txfApellido" alignment="CENTER" layoutX="30.0" layoutY="127.0" promptText="Ingresa tu apellido" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label text="Cédula" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Label>
-            <TextField fx:id="txfCedula" promptText="9999999999" style="-fx-background-radius: 45;" />
-            <Label text="Email">
+            <TextField fx:id="txfCedula" alignment="CENTER" layoutX="30.0" layoutY="162.0" promptText="Ingresa tu cédula" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label text="Email" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Label>
-            <TextField fx:id="txfEmail" promptText="alguien@example.com" style="-fx-background-radius: 45;" />
-            <Label text="Teléfono">
+            <TextField fx:id="txfEmail" alignment="CENTER" layoutX="30.0" layoutY="198.0" promptText="alguien@example.com" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label text="Teléfono" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Label>
-            <TextField fx:id="txfTelefono" promptText="1234567890" style="-fx-background-radius: 45;" />
-            <Label text="Dirección">
+            <TextField fx:id="txfTelefono" alignment="CENTER" layoutX="30.0" layoutY="233.0" promptText="1234567890" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label text="Dirección" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Label>
-            <TextField fx:id="txfDireccion" style="-fx-background-radius: 45;" />
-            <Label text="Usuario">
+            <TextField fx:id="txfDireccion" alignment="CENTER" layoutX="30.0" layoutY="269.0" promptText="Ingresa tu dirección" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label text="Usuario" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txfUsuario" style="-fx-background-radius: 45;" />
-            <Label text="Contraseña">
+            <TextField fx:id="txfUsuario" alignment="CENTER" layoutX="30.0" layoutY="304.0" promptText="Ingresa tu usuario" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label text="Contraseña" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txfPassword" style="-fx-background-radius: 45;" />
-            <GridPane alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="145.0">
+            <PasswordField fx:id="txfPassword" alignment="CENTER" promptText="Ingresa tu contraeña" style="-fx-background-color: transparent; -fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227;" />
+            <GridPane alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="178.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -70,24 +71,24 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="btnGuardar" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Guardar" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                  <Button fx:id="btnGuardar" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Guardar" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" onAction="#onGuardar">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Bauhaus 93" size="14.0" />
                      </font></Button>
-                  <Button fx:id="btnActualizar" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Actualizar" GridPane.columnIndex="1">
+                  <Button fx:id="btnActualizar" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Actualizar" GridPane.columnIndex="1" onAction="#onActualizar">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Bauhaus 93" size="14.0" />
                      </font></Button>
-                  <Button fx:id="btnEliminar" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Eliminar" GridPane.rowIndex="1">
+                  <Button fx:id="btnEliminar" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Eliminar" GridPane.rowIndex="1" onAction="#onEliminar">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Bauhaus 93" size="14.0" />
                      </font></Button>
-                  <Button fx:id="btnLimpiar" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Limpiar" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="btnLimpiar" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Limpiar" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#onLimpiar">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Bauhaus 93" size="14.0" />
                      </font></Button>
                </children>
                <VBox.margin>
@@ -109,12 +110,12 @@
    <right>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" spacing="25.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txfBuscar" alignment="TOP_LEFT" promptText="🔍 Buscar" style="-fx-background-radius: 45;">
+            <TextField fx:id="txfBuscar" alignment="TOP_LEFT" promptText="🔍 Buscar" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;">
                <VBox.margin>
                   <Insets left="25.0" right="25.0" />
                </VBox.margin>
             </TextField>
-            <TableView fx:id="tblCientes" maxWidth="450.0" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="tblCientes" maxWidth="450.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 5;">
               <columns>
                 <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
@@ -130,9 +131,9 @@
                   <Insets bottom="30.0" top="30.0" />
                </VBox.margin>
             </TableView>
-            <Button fx:id="btnVolver" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Volver">
+            <Button fx:id="btnVolver" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Volver" onAction="#onVolver">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Button>
          </children>
@@ -145,13 +146,16 @@
       </VBox>
    </right>
    <top>
-      <Label maxHeight="-Infinity" prefHeight="15.0" text="GESTIÓN DE CLIENTES" textFill="RED" BorderPane.alignment="CENTER">
+      <Label maxHeight="-Infinity" prefHeight="15.0" text="GESTIÓN DE CLIENTES" textFill="#c9a227" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="Bauhaus 93" size="25.0" />
          </font>
          <padding>
             <Insets top="15.0" />
          </padding>
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
       </Label>
    </top>
    <padding>

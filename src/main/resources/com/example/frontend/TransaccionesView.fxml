@@ -10,39 +10,39 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="475.0" spacing="3.0" style="-fx-background-color: dffeff;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="475.0" spacing="3.0" style="-fx-background-color: linear-gradient(to bottom right, #0d0d0d, #222222, #c9a227);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontend.TransaccionesController">
    <children>
-      <Label text="NUEVA TRANSACCIÓN" textFill="RED">
+      <Label text="NUEVA TRANSACCIÓN" textFill="#c9a227">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="Bauhaus 93" size="25.0" />
          </font>
       </Label>
-      <Label text="Tipo">
+      <Label text="Tipo" textFill="#c9a227">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <ComboBox fx:id="cmbTipo" prefWidth="150.0" promptText="tipo" style="-fx-background-radius: 45;" />
-      <Label text="Cuenta origen">
+      <ComboBox fx:id="cmbTipo" prefWidth="150.0" promptText="Tipo" style="-fx-background-radius: 45; -fx-background-color: c9a227;" />
+      <Label text="Cuenta origen" textFill="#c9a227">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <ComboBox fx:id="cmbCuentaOrigen" prefWidth="150.0" promptText="origen" style="-fx-background-radius: 45;" />
-      <Label text="Cuenta destino">
+      <ComboBox fx:id="cmbCuentaOrigen" prefWidth="150.0" promptText="Origen" style="-fx-background-radius: 45; -fx-background-color: c9a227;" />
+      <Label text="Cuenta destino" textFill="#c9a227">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <TextField fx:id="txfCuentaDestino" alignment="CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" promptText="##########" style="-fx-background-radius: 45;" />
-      <Label text="Monto">
+      <TextField fx:id="txfCuentaDestino" alignment="CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" promptText="##########" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+      <Label text="Monto" textFill="#c9a227">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <TextField fx:id="txfMonto" alignment="CENTER" maxWidth="-Infinity" prefWidth="100.0" promptText="____" style="-fx-background-radius: 45;" />
-      <Button fx:id="btnEnviar" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Listo!">
+      <TextField fx:id="txfMonto" alignment="CENTER" maxWidth="-Infinity" prefWidth="100.0" promptText="____" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+      <Button fx:id="btnEnviar" mnemonicParsing="false" onAction="#onEnviar" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Listo!">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Bauhaus 93" size="14.0" />
          </font>
       </Button>
       <Label fx:id="lblResultado">
@@ -52,11 +52,11 @@
          <padding>
             <Insets top="5.0" />
          </padding></Label>
-      <Label text="HISTORIAL">
+      <Label text="HISTORIAL" textFill="#c9a227">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Bauhaus 93" size="14.0" />
          </font></Label>
-      <TableView fx:id="tblTransacciones" maxWidth="-Infinity" prefHeight="200.0" prefWidth="375.0">
+      <TableView fx:id="tblTransacciones" maxWidth="-Infinity" prefHeight="200.0" prefWidth="375.0" style="-fx-background-radius: 5;">
         <columns>
           <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
           <TableColumn fx:id="colMonto" prefWidth="75.0" text="Monto" />
@@ -68,9 +68,9 @@
             <Insets />
          </VBox.margin>
       </TableView>
-      <Button fx:id="btnVolver" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Volver">
+      <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#onVolver" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Volver">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Bauhaus 93" size="14.0" />
          </font>
          <VBox.margin>
             <Insets top="10.0" />

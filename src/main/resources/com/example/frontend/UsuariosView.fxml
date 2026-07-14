@@ -11,12 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="485.0" style="-fx-background-color: dffeff;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="485.0" style="-fx-background-color: linear-gradient(to bottom right, #0d0d0d, #222222, #c9a227);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontend.UsuariosController">
    <top>
-      <Label text="USUARIOS" textFill="RED" BorderPane.alignment="CENTER">
+      <Label text="USUARIOS" textFill="#c9a227" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="Bauhaus 93" size="25.0" />
          </font>
          <BorderPane.margin>
             <Insets top="10.0" />
@@ -26,7 +25,7 @@
    <center>
       <VBox alignment="CENTER" maxWidth="-Infinity" prefHeight="354.0" prefWidth="450.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tblUsuarios" maxWidth="-Infinity" prefHeight="200.0" prefWidth="300.0">
+            <TableView fx:id="tblUsuarios" maxWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" style="-fx-background-radius: 5;">
               <columns>
                 <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="colUsername" prefWidth="100.0" text="Usuario" />
@@ -36,17 +35,17 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </TableView>
-            <ComboBox fx:id="cmbNuevoRol" prefWidth="150.0" promptText="Nuevo Rol" style="-fx-background-radius: 45;" />
+            <ComboBox fx:id="cmbNuevoRol" prefWidth="150.0" promptText="Nuevo Rol" style="-fx-background-radius: 45; -fx-background-color: c9a227;" />
             <HBox alignment="CENTER" prefHeight="42.0" prefWidth="450.0" spacing="35.0">
                <children>
-                  <Button fx:id="btnCambiarRol" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Cambiar Rol">
+                  <Button fx:id="btnCambiarRol" mnemonicParsing="false" onAction="#onCambiarRol" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Cambiar Rol">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnVolver" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Volver">
+                  <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#onVolver" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Volver">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Bauhaus 93" size="14.0" />
                      </font>
                   </Button>
                </children>

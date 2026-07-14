@@ -14,37 +14,38 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="-Infinity" prefHeight="375.0" prefWidth="783.0" style="-fx-background-color: dffeff;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane minHeight="-Infinity" prefHeight="414.0" prefWidth="783.0" style="-fx-background-color: linear-gradient(to bottom right, #0d0d0d, #222222, #c9a227);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="com.example.frontend.CuentasController">
    <left>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="260.0" spacing="3.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Número de Cuenta">
+            <Label text="Número de Cuenta" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Label>
-            <TextField fx:id="txfNumeroCuenta" alignment="CENTER" promptText="1234567890" style="-fx-background-radius: 45;" />
-            <Label text="Cliente">
+            <TextField fx:id="txfNumeroCuenta" alignment="CENTER" promptText="1234567890" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label text="Cliente" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cmbCliente" prefWidth="150.0" promptText="Cliente" style="-fx-background-radius: 45;" />
-            <Label text="Tipo">
+            <ComboBox fx:id="cmbCliente" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" promptText="Cliente" style="-fx-background-radius: 45; -fx-background-color: c9a227;" />
+            <Label text="Tipo" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Label>
-            <ComboBox fx:id="cmbTipo" prefWidth="150.0" promptText="Tipo" style="-fx-background-radius: 45;" />
-            <Label text="Saldo">
+            <ComboBox fx:id="cmbTipo" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" promptText="Tipo" style="-fx-background-radius: 45; -fx-background-color: c9a227;" />
+            <Label text="Saldo" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Label>
-            <TextField fx:id="txfSaldo" alignment="CENTER" promptText="____" style="-fx-background-radius: 45;" />
-            <Label fx:id="cmbEstado" text="Estado">
+            <TextField fx:id="txfSaldo" alignment="CENTER" promptText="Ingresa el saldo" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label fx:id="cmbEstado" text="Estado" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font></Label>
-            <ComboBox fx:id="cmbEstado" prefWidth="150.0" promptText="Estado" style="-fx-background-radius: 45;" />
-            <GridPane alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="145.0">
+            <ComboBox fx:id="cmbEstado" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" promptText="Estado" style="-fx-background-radius: 45; -fx-background-color: c9a227;" />
+            <GridPane alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="201.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -54,10 +55,22 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="btnGuardar" alignment="CENTER" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Guardar" />
-                  <Button fx:id="btnEliminar" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Eliminar" GridPane.rowIndex="1" />
-                  <Button fx:id="btnActualizar" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Actualizar" GridPane.columnIndex="1" />
-                  <Button fx:id="btnLimpiar" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Limpiar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="btnGuardar" alignment="CENTER" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Guardar" onAction="#onGuardar">
+                     <font>
+                        <Font name="Bauhaus 93" size="14.0" />
+                     </font></Button>
+                  <Button fx:id="btnEliminar" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Eliminar" GridPane.rowIndex="1" onAction="#onEliminar">
+                     <font>
+                        <Font name="Bauhaus 93" size="14.0" />
+                     </font></Button>
+                  <Button fx:id="btnActualizar" mnemonicParsing="false" prefHeight="28.0" prefWidth="118.0" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Actualizar" GridPane.columnIndex="1" onAction="#onActualizar">
+                     <font>
+                        <Font name="Bauhaus 93" size="14.0" />
+                     </font></Button>
+                  <Button fx:id="btnLimpiar" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Limpiar" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#onLimpiar">
+                     <font>
+                        <Font name="Bauhaus 93" size="14.0" />
+                     </font></Button>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -72,7 +85,7 @@
    <right>
       <VBox alignment="CENTER" minHeight="-Infinity" prefHeight="330.0" prefWidth="518.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tblCuentas" maxWidth="450.0" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="tblCuentas" maxWidth="450.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 5;">
                <columns>
                   <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
                   <TableColumn fx:id="colNumero" prefWidth="75.0" text="Número" />
@@ -85,7 +98,10 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </TableView>
-            <Button fx:id="btnVolver" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Volver" />
+            <Button fx:id="btnVolver" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Volver" onAction="#onVolver">
+               <font>
+                  <Font name="Bauhaus 93" size="14.0" />
+               </font></Button>
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" />
@@ -93,9 +109,9 @@
       </VBox>
    </right>
    <top>
-      <Label text="GESTIÓN DE CUENTAS" textFill="RED" BorderPane.alignment="CENTER">
+      <Label text="GESTIÓN DE CUENTAS" textFill="#c9a227" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="Bauhaus 93" size="25.0" />
          </font>
          <padding>
             <Insets top="15.0" />

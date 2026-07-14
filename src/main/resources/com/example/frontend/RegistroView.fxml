@@ -9,75 +9,85 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="541.0" style="-fx-background-color: dffeff;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="541.0" style="-fx-background-color: linear-gradient(to bottom right, #0d0d0d, #222222, #c9a227);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontend.RegisterController">
    <top>
-      <Label text="REGISTRO" textFill="RED" BorderPane.alignment="CENTER">
+      <Label text="REGISTRO" textFill="#c9a227" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="Bauhaus 93" size="25.0" />
          </font>
       </Label>
    </top>
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="2.5" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Usuario">
+            <Label text="Usuario" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txfUsuario" alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
-            <Label text="Contraseña">
+            <TextField fx:id="txfUsuario" alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" promptText="Ingresa tu usuario" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label text="Contraseña" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txfPassword" alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
-            <Label layoutX="10.0" layoutY="53.0" text="Confirmar contraseña">
+            <PasswordField fx:id="txfPassword" alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" promptText="Ingresa tu contraseña" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label layoutX="10.0" layoutY="53.0" text="Confirmar contraseña" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txfPasswordConfirm" alignment="CENTER" layoutX="10.0" layoutY="71.0" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
-            <Label text="Nombre">
+            <PasswordField fx:id="txfPasswordConfirm" alignment="CENTER" layoutX="10.0" layoutY="71.0" maxWidth="-Infinity" prefWidth="250.0" promptText="Vuelve a escribir la contraseña" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label text="Nombre" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txfNombre" alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
-            <Label layoutX="10.0" layoutY="140.0" text="Apellido">
+            <TextField fx:id="txfNombre" alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" promptText="Ingresa tu nombre" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label layoutX="10.0" layoutY="140.0" text="Apellido" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txfApellido" alignment="CENTER" layoutX="10.0" layoutY="157.0" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
-            <Label layoutX="10.0" layoutY="183.0" text="Email">
+            <TextField fx:id="txfApellido" alignment="CENTER" layoutX="10.0" layoutY="157.0" maxWidth="-Infinity" prefWidth="250.0" promptText="Ingresa tu apellido" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label layoutX="10.0" layoutY="183.0" text="Email" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txfEmail" alignment="CENTER" layoutX="10.0" layoutY="200.0" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
-            <Label layoutX="10.0" layoutY="226.0" text="Teléfono">
+            <TextField fx:id="txfEmail" alignment="CENTER" layoutX="10.0" layoutY="200.0" maxWidth="-Infinity" prefWidth="250.0" promptText="alguien@example.com" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label layoutX="10.0" layoutY="226.0" text="Teléfono" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txfTelefono" alignment="CENTER" layoutX="10.0" layoutY="244.0" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
-            <Label layoutX="10.0" layoutY="269.0" text="Dirección">
+            <TextField fx:id="txfTelefono" alignment="CENTER" layoutX="10.0" layoutY="244.0" maxWidth="-Infinity" prefWidth="250.0" promptText="1234567890" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Label layoutX="10.0" layoutY="269.0" text="Dirección" textFill="#c9a227">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txfDireccion" alignment="CENTER" layoutX="10.0" layoutY="287.0" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-radius: 45;" />
-            <Button fx:id="btnRegistro" mnemonicParsing="false" style="-fx-background-radius: 45;" text="Registrarme">
+            <TextField fx:id="txfDireccion" alignment="CENTER" layoutX="10.0" layoutY="287.0" maxWidth="-Infinity" prefWidth="250.0" promptText="Ingresa tu dirección" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
+            <Button fx:id="btnRegistro" mnemonicParsing="false" onAction="#onRegistrar" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Registrarme">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Bauhaus 93" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Label fx:id="lblMensaje" underline="true" />
+            <Label fx:id="lblMensaje" underline="true">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Bauhaus 93" size="14.0" />
+               </font></Label>
+            <Button fx:id="btnVolver" layoutX="239.0" layoutY="422.0" mnemonicParsing="false" onAction="#onVolverALogin" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Volver">
+               <font>
+                  <Font name="Bauhaus 93" size="14.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
    </center>
