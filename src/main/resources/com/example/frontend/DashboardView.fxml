@@ -5,43 +5,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom right, #0d0d0d, #222222, #c9a227);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="com.example.frontend.DashboardController">
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" styleClass="root-container" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontend.DashboardController">
    <top>
-      <Label fx:id="lblUser" alignment="CENTER" contentDisplay="TOP" text="Bienvenido [usuario]! Rol: [rol]" textAlignment="CENTER" textFill="#c9a227" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="Bauhaus 93" size="25.0" />
-         </font>
-         <padding>
-            <Insets left="20.0" right="20.0" top="40.0" />
-         </padding>
-      </Label>
+      <VBox alignment="CENTER" styleClass="brand-header" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="app-subtitle" text="SISTEMA BANCARIO" />
+            <Label fx:id="lblUser" alignment="CENTER" contentDisplay="TOP" styleClass="app-title" text="Bienvenido [usuario]!" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets top="4.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
    </top>
    <center>
-      <VBox alignment="CENTER" cache="true" prefHeight="370.0" prefWidth="340.0" spacing="30.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" cache="true" prefHeight="370.0" prefWidth="340.0" spacing="16.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnClientes" alignment="CENTER" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Clientes" textAlignment="CENTER" onAction="#onClientes">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Button>
-            <Button fx:id="btnCuentas" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Cuentas" onAction="#onCuentas">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Button>
-            <Button fx:id="btnTransacciones" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Transacciones" onAction="#onTransacciones">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Button>
-            <Button fx:id="btnUsuarios" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Usuarios" onAction="#onUsuarios">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Button>
-            <Button fx:id="btnLogout" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Cerrar Sesión" onAction="#onLogout">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Button>
+            <Button fx:id="btnClientes" alignment="CENTER" maxWidth="260.0" mnemonicParsing="false" onAction="#onClientes" prefWidth="260.0" styleClass="btn-primary" text="Clientes" textAlignment="CENTER" />
+            <Button fx:id="btnCuentas" maxWidth="260.0" mnemonicParsing="false" onAction="#onCuentas" prefWidth="260.0" styleClass="btn-primary" text="Cuentas" />
+            <Button fx:id="btnTransacciones" maxWidth="260.0" mnemonicParsing="false" onAction="#onTransacciones" prefWidth="260.0" styleClass="btn-primary" text="Transacciones" />
+            <Button fx:id="btnUsuarios" maxWidth="260.0" mnemonicParsing="false" onAction="#onUsuarios" prefWidth="260.0" styleClass="btn-accent" text="Usuarios (Admin)" />
+            <Button fx:id="btnLogout" maxWidth="260.0" mnemonicParsing="false" onAction="#onLogout" prefWidth="260.0" styleClass="btn-danger" text="Cerrar Sesión">
+               <VBox.margin>
+                  <Insets top="18.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
    </center>

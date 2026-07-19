@@ -2,6 +2,7 @@ package com.example.frontend;
 
 import com.example.frontend.model.Usuario;
 import com.example.frontend.service.AuthService;
+import com.example.frontend.util.LimitadorCampos;
 import com.example.frontend.util.Navegador;
 import com.example.frontend.util.Sesion;
 import javafx.fxml.FXML;
@@ -18,6 +19,12 @@ public class LoginController {
     @FXML private Label lblError;
 
     private final AuthService authService = new AuthService();
+
+    @FXML
+    private void initialize() {
+        LimitadorCampos.limitarTexto(txfUsuario, 30);
+        LimitadorCampos.limitarTexto(txfPassword, 30);
+    }
 
     @FXML
     private void onLogin() {

@@ -7,6 +7,7 @@ import com.example.frontend.model.EstadoCuenta;
 import com.example.frontend.model.TipoCuenta;
 import com.example.frontend.service.CuentaService;
 import com.example.frontend.util.Dialogos;
+import com.example.frontend.util.LimitadorCampos;
 import com.example.frontend.util.Navegador;
 import com.example.frontend.util.Sesion;
 import javafx.beans.property.SimpleStringProperty;
@@ -65,6 +66,7 @@ public class CuentasController {
         tblCuentas.getSelectionModel().selectedItemProperty().addListener((obs, viejo, nuevo) -> {
             cuentaSeleccionada = nuevo;
             if (nuevo != null) {
+                txfNumeroCuenta.setEditable(true);
                 txfNumeroCuenta.setText(nuevo.getNumeroCuenta());
                 txfSaldo.setText(nuevo.getSaldo().toString());
                 txfSaldo.setDisable(true); // el saldo solo cambia con transacciones
@@ -82,8 +84,23 @@ public class CuentasController {
         btnActualizar.setDisable(soloLectura);
         btnEliminar.setDisable(soloLectura);
 
+        LimitadorCampos.limitarSoloNumeros(txfNumeroCuenta, 20);
+        LimitadorCampos.limitarDecimal(txfSaldo, 12, 2);
+
         cargarClientes();
         cargarDatos();
+        generarNumeroCuentaAutomatico();
+    }
+
+    private void generarNumeroCuentaAutomatico() {
+        try {
+            txfNumeroCuenta.setText(cuentaService.generarNumeroCuentaUnico());
+        } catch (SQLException e) {
+            Dialogos.error("No se pudo generar el número de cuenta");
+            e.printStackTrace();
+        } finally {
+            txfNumeroCuenta.setEditable(false);
+        }
     }
 
     private void cargarClientes() {
@@ -169,7 +186,6 @@ public class CuentasController {
 
     @FXML
     private void onLimpiar() {
-        txfNumeroCuenta.clear();
         txfSaldo.clear();
         txfSaldo.setDisable(false);
         cmbCliente.setValue(null);
@@ -177,6 +193,7 @@ public class CuentasController {
         cmbEstado.setValue(null);
         tblCuentas.getSelectionModel().clearSelection();
         cuentaSeleccionada = null;
+        generarNumeroCuentaAutomatico();
     }
 
     @FXML
