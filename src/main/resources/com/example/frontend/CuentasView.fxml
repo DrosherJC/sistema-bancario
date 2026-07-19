@@ -12,70 +12,61 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="-Infinity" prefHeight="414.0" prefWidth="783.0" style="-fx-background-color: linear-gradient(to bottom right, #0d0d0d, #222222, #c9a227);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="com.example.frontend.CuentasController">
+<BorderPane minHeight="-Infinity" prefHeight="650.0" prefWidth="920.0" styleClass="root-container" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontend.CuentasController">
    <left>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="260.0" spacing="3.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="280.0" spacing="4.0" styleClass="sidebar-panel" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Número de Cuenta" textFill="#c9a227">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Label>
-            <TextField fx:id="txfNumeroCuenta" alignment="CENTER" promptText="1234567890" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
-            <Label text="Cliente" textFill="#c9a227">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font>
+            <Label styleClass="form-label" text="Número de Cuenta" />
+            <TextField fx:id="txfNumeroCuenta" promptText="1234567890" styleClass="text-field" />
+            <Label styleClass="form-label" text="Cliente">
+               <VBox.margin>
+                  <Insets top="6.0" />
+               </VBox.margin>
             </Label>
-            <ComboBox fx:id="cmbCliente" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" promptText="Cliente" style="-fx-background-radius: 45; -fx-background-color: c9a227;" />
-            <Label text="Tipo" textFill="#c9a227">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Label>
-            <ComboBox fx:id="cmbTipo" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" promptText="Tipo" style="-fx-background-radius: 45; -fx-background-color: c9a227;" />
-            <Label text="Saldo" textFill="#c9a227">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Label>
-            <TextField fx:id="txfSaldo" alignment="CENTER" promptText="Ingresa el saldo" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
-            <Label fx:id="cmbEstado" text="Estado" textFill="#c9a227">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Label>
-            <ComboBox fx:id="cmbEstado" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" promptText="Estado" style="-fx-background-radius: 45; -fx-background-color: c9a227;" />
-            <GridPane alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="201.0">
+            <ComboBox fx:id="cmbCliente" prefWidth="200.0" promptText="Cliente" styleClass="combo-box" />
+            <Label styleClass="form-label" text="Tipo">
+               <VBox.margin>
+                  <Insets top="6.0" />
+               </VBox.margin>
+            </Label>
+            <ComboBox fx:id="cmbTipo" prefWidth="150.0" promptText="Tipo" styleClass="combo-box" />
+            <Label styleClass="form-label" text="Saldo inicial">
+               <VBox.margin>
+                  <Insets top="6.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="txfSaldo" promptText="0.00" styleClass="text-field" />
+            <Label styleClass="form-label" text="Estado">
+               <VBox.margin>
+                  <Insets top="6.0" />
+               </VBox.margin>
+            </Label>
+            <ComboBox fx:id="cmbEstado" prefWidth="150.0" promptText="Estado" styleClass="combo-box" />
+            <GridPane alignment="TOP_CENTER" hgap="10.0" vgap="10.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="220.0">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="105.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="105.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="38.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="38.0" prefHeight="38.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="btnGuardar" alignment="CENTER" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Guardar" onAction="#onGuardar">
-                     <font>
-                        <Font name="Bauhaus 93" size="14.0" />
-                     </font></Button>
-                  <Button fx:id="btnEliminar" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Eliminar" GridPane.rowIndex="1" onAction="#onEliminar">
-                     <font>
-                        <Font name="Bauhaus 93" size="14.0" />
-                     </font></Button>
-                  <Button fx:id="btnActualizar" mnemonicParsing="false" prefHeight="28.0" prefWidth="118.0" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Actualizar" GridPane.columnIndex="1" onAction="#onActualizar">
-                     <font>
-                        <Font name="Bauhaus 93" size="14.0" />
-                     </font></Button>
-                  <Button fx:id="btnLimpiar" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Limpiar" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#onLimpiar">
-                     <font>
-                        <Font name="Bauhaus 93" size="14.0" />
-                     </font></Button>
+                  <Button fx:id="btnGuardar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onGuardar" styleClass="btn-primary, btn-compact" text="Guardar" />
+                  <Button fx:id="btnEliminar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEliminar" styleClass="btn-danger, btn-compact" text="Eliminar" GridPane.rowIndex="1" />
+                  <Button fx:id="btnActualizar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActualizar" styleClass="btn-outline, btn-compact" text="Actualizar" GridPane.columnIndex="1" />
+                  <Button fx:id="btnLimpiar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onLimpiar" styleClass="btn-ghost, btn-compact" text="Limpiar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="14.0" />
                </VBox.margin>
             </GridPane>
+            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#onVolver" styleClass="btn-back" text="&lt; Volver al Dashboard">
+               <VBox.margin>
+                  <Insets top="18.0" />
+               </VBox.margin>
+            </Button>
          </children>
          <padding>
             <Insets left="30.0" right="20.0" />
@@ -83,25 +74,21 @@ fx:controller="com.example.frontend.CuentasController">
       </VBox>
    </left>
    <right>
-      <VBox alignment="CENTER" minHeight="-Infinity" prefHeight="330.0" prefWidth="518.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" minHeight="-Infinity" prefHeight="350.0" prefWidth="620.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tblCuentas" maxWidth="450.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 5;">
+            <TableView fx:id="tblCuentas" maxWidth="580.0" prefHeight="260.0" prefWidth="575.0" styleClass="table-view">
                <columns>
-                  <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
-                  <TableColumn fx:id="colNumero" prefWidth="75.0" text="Número" />
-                  <TableColumn fx:id="colCliente" prefWidth="75.0" text="Cliente" />
-                  <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
-                  <TableColumn fx:id="colSaldo" prefWidth="75.0" text="Saldo" />
-                  <TableColumn fx:id="colEstado" prefWidth="75.0" text="Estado" />
+                  <TableColumn fx:id="colId" prefWidth="45.0" text="ID" />
+                  <TableColumn fx:id="colNumero" prefWidth="110.0" text="Número" />
+                  <TableColumn fx:id="colCliente" prefWidth="150.0" text="Cliente" />
+                  <TableColumn fx:id="colTipo" prefWidth="90.0" text="Tipo" />
+                  <TableColumn fx:id="colSaldo" prefWidth="90.0" text="Saldo" />
+                  <TableColumn fx:id="colEstado" prefWidth="90.0" text="Estado" />
                </columns>
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
-            <Button fx:id="btnVolver" mnemonicParsing="false" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Volver" onAction="#onVolver">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Button>
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" />
@@ -109,14 +96,11 @@ fx:controller="com.example.frontend.CuentasController">
       </VBox>
    </right>
    <top>
-      <Label text="GESTIÓN DE CUENTAS" textFill="#c9a227" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="Bauhaus 93" size="25.0" />
-         </font>
-         <padding>
-            <Insets top="15.0" />
-         </padding>
-      </Label>
+      <VBox alignment="CENTER" styleClass="brand-header" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="app-title" text="GESTIÓN DE CUENTAS" />
+         </children>
+      </VBox>
    </top>
    <padding>
       <Insets bottom="10.0" />

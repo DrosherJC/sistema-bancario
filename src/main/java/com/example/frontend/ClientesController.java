@@ -4,6 +4,7 @@ import com.example.frontend.model.Cliente;
 import com.example.frontend.service.AuthService;
 import com.example.frontend.service.ClienteService;
 import com.example.frontend.util.Dialogos;
+import com.example.frontend.util.LimitadorCampos;
 import com.example.frontend.util.Navegador;
 import com.example.frontend.util.Sesion;
 import javafx.beans.property.SimpleStringProperty;
@@ -86,6 +87,16 @@ public class ClientesController {
         btnGuardar.setDisable(soloLectura);
         btnActualizar.setDisable(soloLectura);
         btnEliminar.setDisable(soloLectura);
+
+        LimitadorCampos.limitarSoloLetras(txfNombre, 50);
+        LimitadorCampos.limitarSoloLetras(txfApellido, 50);
+        LimitadorCampos.limitarSoloNumeros(txfCedula, 10);
+        LimitadorCampos.limitarTexto(txfEmail, 100);
+        LimitadorCampos.limitarSoloNumeros(txfTelefono, 10);
+        LimitadorCampos.limitarTexto(txfDireccion, 150);
+        LimitadorCampos.limitarTexto(txfUsuario, 30);
+        LimitadorCampos.limitarTexto(txfPassword, 30);
+        LimitadorCampos.limitarTexto(txfBuscar, 50);
 
         cargarDatos();
     }

@@ -28,6 +28,7 @@ public class DashboardController {
         btnCuentas.setManaged(esAdmin);
         btnUsuarios.setVisible(esAdmin);
         btnUsuarios.setManaged(esAdmin);
+
     }
 
     @FXML
