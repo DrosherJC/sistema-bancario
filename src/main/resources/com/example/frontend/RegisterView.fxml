@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="480.0" prefWidth="435.0" styleClass="root-container" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontend.RegisterController">
+   <children>
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox alignment="BASELINE_CENTER" prefWidth="220.0" spacing="7.5" styleClass="card-panel">
+               <padding>
+                  <Insets top="25.0" bottom="25.0" left="80.0" right="80.0" />
+               </padding>
+               <children>
+                  <Label styleClass="page-title" text="CREAR CUENTA" textAlignment="CENTER" />
+                  <Label text="Los usuarios nuevos inician con rol Estándar y quedan registrados como cliente del banco. Un administrador puede ascenderte despues." wrapText="true" textAlignment="CENTER" styleClass="helper-text">
+                     <VBox.margin>
+                        <Insets top="5.0" bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label styleClass="form-label" text="Usuario">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <TextField fx:id="txfUsuario" prefHeight="26.0" prefWidth="178.0" styleClass="text-field" />
+                  <Label styleClass="form-label" text="Contraseña">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <PasswordField fx:id="txfPassword" styleClass="password-field" />
+                  <Label styleClass="form-label" text="Confirmar contraseña">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <PasswordField fx:id="txfPasswordConfirm" styleClass="password-field" />
+                  <Label styleClass="section-title" text="Datos del cliente" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label styleClass="form-label" text="Nombre">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></Label>
+                  <TextField fx:id="txfNombre" styleClass="text-field" />
+                  <Label styleClass="form-label" text="Apellido">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <TextField fx:id="txfApellido" styleClass="text-field" />
+                  <Label styleClass="form-label" text="Cédula">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <TextField fx:id="txfCedula" promptText="10 digitos" styleClass="text-field" />
+                  <Label styleClass="form-label" text="Email">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <TextField fx:id="txfEmail" styleClass="text-field" />
+                  <Label styleClass="form-label" text="Teléfono">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <TextField fx:id="txfTelefono" promptText="10 digitos" styleClass="text-field" />
+                  <Label styleClass="form-label" text="Dirección (opcional)">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <TextField fx:id="txfDireccion" styleClass="text-field" />
+                  <Button mnemonicParsing="false" onAction="#onRegistrar" styleClass="btn-primary" text="Registrarme">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin></Button>
+                  <Button mnemonicParsing="false" onAction="#onVolverALogin" styleClass="btn-link" text="Ya tengo cuenta, iniciar sesión">
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Label fx:id="lblMensaje" wrapText="true" textAlignment="CENTER" styleClass="status-text">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
