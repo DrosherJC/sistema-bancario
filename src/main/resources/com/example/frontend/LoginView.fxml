@@ -7,59 +7,45 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane prefHeight="400.0" prefWidth="435.0" style="-fx-background-color: linear-gradient(to bottom right, #0d0d0d, #222222, #c9a227);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontend.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="435.0" styleClass="root-container" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontend.LoginController">
    <children>
-      <VBox alignment="BASELINE_CENTER" layoutX="108.0" layoutY="35.0" prefHeight="330.0" prefWidth="220.0" spacing="7.5" AnchorPane.bottomAnchor="34.599999999999966" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="108.0" AnchorPane.topAnchor="35.0">
+      <VBox alignment="BASELINE_CENTER" layoutX="108.0" layoutY="35.0" prefHeight="330.0" prefWidth="220.0" spacing="7.5" styleClass="card-panel" AnchorPane.bottomAnchor="34.599999999999966" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="35.0">
+         <padding>
+            <Insets bottom="25.0" left="30.0" right="30.0" top="25.0" />
+         </padding>
          <children>
-            <Label text="SISTEMA BANCARIO" textAlignment="CENTER" textFill="#c9a227">
-               <font>
-                  <Font name="Bauhaus 93" size="25.0" />
-               </font>
+            <Label styleClass="page-title" text="SISTEMA BANCARIO" textAlignment="CENTER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Label>
-            <Label text="Usuario" textFill="#c9a227">
+            <Label styleClass="form-label" text="Usuario">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="txfUsuario" prefHeight="30.0" prefWidth="178.0" styleClass="text-field" />
+            <Label styleClass="form-label" text="Contraseña">
                <VBox.margin>
                   <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Label>
-            <TextField fx:id="txfUsuario" alignment="CENTER" prefHeight="26.0" prefWidth="178.0" promptText="Ingresa tu usuario" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
-            <Label text="Contraseña" textFill="#c9a227">
+               </VBox.margin></Label>
+            <PasswordField fx:id="txfPassword" styleClass="password-field" />
+            <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#onLogin" styleClass="btn-primary" text="Iniciar Sesión">
                <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Label>
-            <PasswordField fx:id="txfPassword" alignment="CENTER" promptText="Ingresa tu contraseña" style="-fx-background-radius: 45; -fx-border-radius: 45; -fx-border-color: c9a227; -fx-background-color: transparent;" />
-            <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#onLogin" style="-fx-background-radius: 45; -fx-background-color: c9a227;" text="Iniciar Sesión">
+                  <Insets top="15.0" />
+               </VBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#onIrARegistro" styleClass="btn-link" text="Crear una cuenta nueva">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="8.0" />
                </VBox.margin>
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font></Button>
-            <Label fx:id="lblError" textFill="RED">
-               <font>
-                  <Font name="Bauhaus 93" size="15.0" />
-               </font>
+            </Button>
+            <Label fx:id="lblError" styleClass="error-text" textFill="RED">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets top="25.0" />
+                  <Insets top="20.0" />
                </padding>
             </Label>
-            <Button fx:id="IrARegistro" mnemonicParsing="false" onAction="#onIrARegistro" style="-fx-background-color: tansparent;" text="Registrarme..." textFill="#c9a227">
-               <font>
-                  <Font name="Bauhaus 93" size="14.0" />
-               </font>
-            </Button>
          </children>
       </VBox>
    </children>

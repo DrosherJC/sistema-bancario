@@ -62,7 +62,7 @@ public class CuentaService {
         return cuenta;
     }
 
-    private String generarNumeroCuentaUnico() throws SQLException {
+    public String generarNumeroCuentaUnico() throws SQLException {
         String numero;
         do {
             numero = generarNumeroAleatorioDe10Digitos();
