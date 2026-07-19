@@ -8,6 +8,7 @@ import com.example.frontend.model.Transaccion;
 import com.example.frontend.model.TipoTransaccion;
 import com.example.frontend.service.TransaccionService;
 import com.example.frontend.util.Dialogos;
+import com.example.frontend.util.LimitadorCampos;
 import com.example.frontend.util.Navegador;
 import com.example.frontend.util.Sesion;
 import javafx.beans.property.SimpleStringProperty;
@@ -20,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.util.StringConverter;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -36,6 +38,7 @@ public class TransaccionesController {
     @FXML private TextField txfMonto;
     @FXML private Button btnEnviar;
     @FXML private Label lblResultado;
+    @FXML private Label lblSaldo;
     @FXML private Button btnVolver;
 
     @FXML private TableView<Transaccion> tblTransacciones;
@@ -81,9 +84,47 @@ public class TransaccionesController {
         cmbTipo.valueProperty().addListener((obs, viejo, nuevo) -> actualizarCamposSegunTipo(nuevo));
         actualizarCamposSegunTipo(null);
 
+        cmbCuentaOrigen.setConverter(new StringConverter<Cuenta>() {
+            @Override
+            public String toString(Cuenta cuenta) {
+                return cuenta == null ? "" : cuenta.getNumeroCuenta() + " (" + cuenta.getTipo() + ")";
+            }
+
+            @Override
+            public Cuenta fromString(String texto) {
+                return cmbCuentaOrigen.getValue();
+            }
+        });
+        cmbCuentaOrigen.valueProperty().addListener((obs, vieja, nueva) -> actualizarSaldoMostrado(nueva));
+        actualizarSaldoMostrado(null);
+
+        LimitadorCampos.limitarSoloNumeros(txfCuentaDestino, 20);
+        LimitadorCampos.limitarDecimal(txfMonto, 12, 2);
+
         cargarClienteActual();
         cargarCuentas();
         cargarHistorial();
+        configurarModoSegunRol();
+    }
+
+    private void actualizarSaldoMostrado(Cuenta cuenta) {
+        if (cuenta == null) {
+            lblSaldo.setText("Saldo actual: --");
+            return;
+        }
+        lblSaldo.setText("Saldo actual: $" + cuenta.getSaldo().setScale(2, java.math.RoundingMode.HALF_UP));
+    }
+
+    private void configurarModoSegunRol() {
+        if (Sesion.esAdministrador()) {
+            cmbTipo.setDisable(true);
+            cmbCuentaOrigen.setDisable(true);
+            txfCuentaDestino.setDisable(true);
+            txfMonto.setDisable(true);
+            btnEnviar.setDisable(true);
+            lblResultado.setTextFill(javafx.scene.paint.Color.GRAY);
+            lblResultado.setText("Modo administrador: solo puedes visualizar el historial de transacciones.");
+        }
     }
 
     private void cargarClienteActual() {
@@ -157,6 +198,11 @@ public class TransaccionesController {
 
     @FXML
     private void onEnviar() {
+        if (Sesion.esAdministrador()) {
+            mostrarResultado("Los administradores no pueden realizar transacciones, solo visualizarlas.", true);
+            return;
+        }
+
         TipoTransaccion tipo = cmbTipo.getValue();
         if (tipo == null) {
             mostrarResultado("Selecciona el tipo de transaccion", true);
@@ -172,6 +218,7 @@ public class TransaccionesController {
         }
 
         Long usuarioId = Sesion.getUsuarioActual().getId();
+        Long cuentaOrigenId = cmbCuentaOrigen.getValue() != null ? cmbCuentaOrigen.getValue().getId() : null;
 
         try {
             switch (tipo) {
@@ -194,6 +241,7 @@ public class TransaccionesController {
             txfMonto.clear();
             txfCuentaDestino.clear();
             cargarCuentas();
+            reseleccionarCuenta(cuentaOrigenId);
             cargarHistorial();
         } catch (IllegalArgumentException e) {
             mostrarResultado(e.getMessage(), true);
@@ -201,6 +249,16 @@ public class TransaccionesController {
             mostrarResultado("Error de conexion a la base de datos", true);
             e.printStackTrace();
         }
+    }
+
+    private void reseleccionarCuenta(Long cuentaId) {
+        if (cuentaId == null) {
+            return;
+        }
+        cmbCuentaOrigen.getItems().stream()
+                .filter(c -> c.getId().equals(cuentaId))
+                .findFirst()
+                .ifPresent(c -> cmbCuentaOrigen.setValue(c));
     }
 
     private Cuenta buscarCuentaDestinoEscrita() throws SQLException {

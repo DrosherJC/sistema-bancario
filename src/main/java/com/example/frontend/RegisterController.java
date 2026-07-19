@@ -2,6 +2,7 @@ package com.example.frontend;
 
 import com.example.frontend.model.Cliente;
 import com.example.frontend.service.AuthService;
+import com.example.frontend.util.LimitadorCampos;
 import com.example.frontend.util.Navegador;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -24,6 +25,19 @@ public class RegisterController {
     @FXML private Label lblMensaje;
 
     private final AuthService authService = new AuthService();
+
+    @FXML
+    private void initialize() {
+        LimitadorCampos.limitarTexto(txfUsuario, 30);
+        LimitadorCampos.limitarTexto(txfPassword, 30);
+        LimitadorCampos.limitarTexto(txfPasswordConfirm, 30);
+        LimitadorCampos.limitarSoloLetras(txfNombre, 50);
+        LimitadorCampos.limitarSoloLetras(txfApellido, 50);
+        LimitadorCampos.limitarSoloNumeros(txfCedula, 10);
+        LimitadorCampos.limitarTexto(txfEmail, 100);
+        LimitadorCampos.limitarSoloNumeros(txfTelefono, 10);
+        LimitadorCampos.limitarTexto(txfDireccion, 150);
+    }
 
     @FXML
     private void onRegistrar() {
@@ -80,4 +94,3 @@ public class RegisterController {
         lblMensaje.setText(mensaje);
     }
 }
-
