@@ -19,6 +19,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.FilteredList;
+import javafx.util.StringConverter;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -44,11 +47,16 @@ public class CuentasController {
     @FXML private Button btnEliminar;
     @FXML private Button btnLimpiar;
     @FXML private Button btnVolver;
+    @FXML private TextField txfBuscar;
+
 
     private final CuentaService cuentaService = new CuentaService();
     private final ClienteDAO clienteDAO = new ClienteDAO();
     private final ObservableList<Cuenta> datos = FXCollections.observableArrayList();
     private Cuenta cuentaSeleccionada;
+    private final ObservableList<Cliente> todosLosClientes = FXCollections.observableArrayList();
+    private FilteredList<Cliente> clientesFiltrados;
+    private boolean actualizandoTexto = false;
 
     @FXML
     private void initialize() {
@@ -63,21 +71,51 @@ public class CuentasController {
         cmbTipo.setItems(FXCollections.observableArrayList(TipoCuenta.values()));
         cmbEstado.setItems(FXCollections.observableArrayList(EstadoCuenta.values()));
 
-        tblCuentas.getSelectionModel().selectedItemProperty().addListener((obs, viejo, nuevo) -> {
-            cuentaSeleccionada = nuevo;
-            if (nuevo != null) {
-                txfNumeroCuenta.setEditable(true);
-                txfNumeroCuenta.setText(nuevo.getNumeroCuenta());
-                txfSaldo.setText(nuevo.getSaldo().toString());
-                txfSaldo.setDisable(true); // el saldo solo cambia con transacciones
-                cmbTipo.setValue(nuevo.getTipo());
-                cmbEstado.setValue(nuevo.getEstado());
-                cmbCliente.getItems().stream()
-                        .filter(c -> c.getId().equals(nuevo.getClienteId()))
-                        .findFirst().ifPresent(cmbCliente::setValue);
+        FilteredList<Cuenta> filtrados = new FilteredList<>(datos, c -> true);
+        txfBuscar.textProperty().addListener((obs, viejo, nuevo) -> {
+            String filtro = nuevo == null ? "" : nuevo.toLowerCase();
+            filtrados.setPredicate(c ->
+                    filtro.isBlank()
+                            || c.getClienteNombre().toLowerCase().contains(filtro)
+                            || c.getNumeroCuenta().contains(filtro));
+        });
+        tblCuentas.setItems(filtrados);
+
+        cmbCliente.setEditable(true);
+
+        cmbCliente.setConverter(new StringConverter<Cliente>() {
+            @Override
+            public String toString(Cliente c) {
+                return c == null ? "" : c.toString();
+            }
+            @Override
+            public Cliente fromString(String texto) {
+                return todosLosClientes.stream()
+                        .filter(c -> c.toString().equalsIgnoreCase(texto))
+                        .findFirst().orElse(null);
             }
         });
 
+        cmbCliente.getEditor().textProperty().addListener((obs, viejo, nuevo) -> {
+            if (actualizandoTexto) return;
+            String filtro = nuevo == null ? "" : nuevo.toLowerCase();
+            clientesFiltrados.setPredicate(c ->
+                    filtro.isBlank()
+                            || c.getNombreCompleto().toLowerCase().contains(filtro)
+                            || c.getCedula().contains(filtro));
+            if (!filtro.isBlank() && !cmbCliente.isShowing()) {
+                cmbCliente.show();
+            }
+        });
+
+        cmbCliente.setOnAction(e -> {
+            Cliente seleccionado = cmbCliente.getSelectionModel().getSelectedItem();
+            if (seleccionado != null) {
+                actualizandoTexto = true;
+                cmbCliente.getEditor().setText(seleccionado.toString());
+                actualizandoTexto = false;
+            }
+        });
 
         boolean soloLectura = !Sesion.esAdministrador();
         btnGuardar.setDisable(soloLectura);
@@ -90,6 +128,8 @@ public class CuentasController {
         cargarClientes();
         cargarDatos();
         generarNumeroCuentaAutomatico();
+
+
     }
 
     private void generarNumeroCuentaAutomatico() {
@@ -105,7 +145,9 @@ public class CuentasController {
 
     private void cargarClientes() {
         try {
-            cmbCliente.setItems(FXCollections.observableArrayList(clienteDAO.listarTodos()));
+            todosLosClientes.setAll(clienteDAO.listarTodos());
+            clientesFiltrados = new FilteredList<>(todosLosClientes, c -> true);
+            cmbCliente.setItems(clientesFiltrados);
         } catch (SQLException e) {
             Dialogos.error("No se pudo cargar la lista de clientes");
             e.printStackTrace();

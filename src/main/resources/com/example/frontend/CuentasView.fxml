@@ -73,9 +73,15 @@
          </padding>
       </VBox>
    </left>
+
    <right>
       <VBox alignment="CENTER" minHeight="-Infinity" prefHeight="350.0" prefWidth="620.0" BorderPane.alignment="CENTER">
          <children>
+            <TextField fx:id="txfBuscar" maxWidth="420.0" promptText="🔍 Buscar por nombre del dueño">
+               <VBox.margin>
+                  <Insets bottom="8.0" />
+               </VBox.margin>
+            </TextField>
             <TableView fx:id="tblCuentas" maxWidth="580.0" prefHeight="260.0" prefWidth="575.0" styleClass="table-view">
                <columns>
                   <TableColumn fx:id="colId" prefWidth="45.0" text="ID" />

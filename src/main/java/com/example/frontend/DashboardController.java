@@ -18,7 +18,7 @@ public class DashboardController {
     @FXML
     private void initialize() {
         var usuario = Sesion.getUsuarioActual();
-        lblUser.setText("Bienvenido " + usuario.getUsername() + "! Rol: " + usuario.getRol());
+        lblUser.setText("Bienvenido " + usuario.getUsername() + "!");
 
         boolean esAdmin = Sesion.esAdministrador();
 
