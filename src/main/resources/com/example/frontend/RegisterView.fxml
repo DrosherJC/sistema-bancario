@@ -19,11 +19,6 @@
                </padding>
                <children>
                   <Label styleClass="page-title" text="CREAR CUENTA" textAlignment="CENTER" />
-                  <Label text="Los usuarios nuevos inician con rol Estándar y quedan registrados como cliente del banco. Un administrador puede ascenderte despues." wrapText="true" textAlignment="CENTER" styleClass="helper-text">
-                     <VBox.margin>
-                        <Insets top="5.0" bottom="5.0" />
-                     </VBox.margin>
-                  </Label>
                   <Label styleClass="form-label" text="Usuario">
                      <VBox.margin>
                         <Insets top="10.0" />

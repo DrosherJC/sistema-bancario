@@ -20,7 +20,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.FilteredList;
 import javafx.util.StringConverter;
 
 import java.math.BigDecimal;
@@ -80,7 +79,21 @@ public class CuentasController {
                             || c.getNumeroCuenta().contains(filtro));
         });
         tblCuentas.setItems(filtrados);
-
+        tblCuentas.getSelectionModel().selectedItemProperty().addListener((obs, viejo, seleccionada) -> {
+            cuentaSeleccionada = seleccionada;
+            if (seleccionada != null) {
+                txfNumeroCuenta.setEditable(true);
+                txfNumeroCuenta.setText(seleccionada.getNumeroCuenta());
+                cmbCliente.setValue(todosLosClientes.stream()
+                        .filter(c -> c.getId().equals(seleccionada.getClienteId()))
+                        .findFirst().orElse(null));
+                cmbTipo.setValue(seleccionada.getTipo());
+                cmbEstado.setValue(seleccionada.getEstado());
+                txfSaldo.setText(seleccionada.getSaldo().toString());
+                txfSaldo.setDisable(true);
+                txfNumeroCuenta.setEditable(false);
+            }
+        });
         cmbCliente.setEditable(true);
 
         cmbCliente.setConverter(new StringConverter<Cliente>() {

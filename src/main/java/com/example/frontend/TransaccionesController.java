@@ -14,6 +14,7 @@ import com.example.frontend.util.Sesion;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -36,6 +37,7 @@ public class TransaccionesController {
     @FXML private ComboBox<Cuenta> cmbCuentaOrigen;
     @FXML private TextField txfCuentaDestino;
     @FXML private TextField txfMonto;
+    @FXML private TextField txfBuscarReceptor;
     @FXML private Button btnEnviar;
     @FXML private Label lblResultado;
     @FXML private Label lblSaldo;
@@ -78,7 +80,19 @@ public class TransaccionesController {
             };
             return new SimpleStringProperty(receptor == null ? "" : receptor);
         });
-        tblTransacciones.setItems(historial);
+        FilteredList<Transaccion> historialFiltrado = new FilteredList<>(historial, t -> true);
+        txfBuscarReceptor.textProperty().addListener((obs, viejo, nuevo) -> {
+            String filtro = nuevo == null ? "" : nuevo.toLowerCase();
+            historialFiltrado.setPredicate(t -> {
+                if (filtro.isBlank()) return true;
+                String receptor = switch (t.getTipo()) {
+                    case DEPOSITO, TRANSFERENCIA -> t.getClienteDestinoNombre();
+                    case RETIRO -> t.getClienteOrigenNombre();
+                };
+                return receptor != null && receptor.toLowerCase().contains(filtro);
+            });
+        });
+        tblTransacciones.setItems(historialFiltrado);
 
         cmbTipo.setItems(FXCollections.observableArrayList(TipoTransaccion.values()));
         cmbTipo.valueProperty().addListener((obs, viejo, nuevo) -> actualizarCamposSegunTipo(nuevo));
